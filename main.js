@@ -128,19 +128,39 @@
 // // sleep(2000).then(() => {
 // //   console.log(Date.now() - t); // 100
 // // });
-var singleNumber = function (nums) {
-  let object = nums.reduce((acc, curr) => {
-    if (!acc[curr]) {
-      acc[curr] = 1;
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// var singleNumber = function (nums) {
+//   let object = nums.reduce((acc, curr) => {
+//     if (!acc[curr]) {
+//       acc[curr] = 1;
+//     } else {
+//       acc[curr] += 1;
+//     }
+//     return acc;
+//   }, {});
+//   for (const key in object) {
+//     if (object[key] === 1) {
+//       return key
+//     }
+//   }
+// };
+// console.log(singleNumber([2, 2, 1]));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var findFinalValue = function (nums, original) {
+  let newArr = nums.sort((a,b)=>a-b)
+  let k = 0
+  let num = 0;
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr[i] === original) {
+k++      
+      num = newArr[i] * 2;
     } else {
-      acc[curr] += 1;
-    }
-    return acc;
-  }, {});
-  for (const key in object) {
-    if (object[key] === 1) {
-      return key
+      if (newArr[i] === num) {
+        num = newArr[i] * 2;
+      }
     }
   }
+
+  return k === 0 ? original: num;
 };
-console.log(singleNumber([2, 2, 1]));
+console.log(findFinalValue([8, 19, 4, 2, 15, 3], 2));
