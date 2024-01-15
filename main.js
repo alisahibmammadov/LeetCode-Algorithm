@@ -146,21 +146,52 @@
 // };
 // console.log(singleNumber([2, 2, 1]));
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-var findFinalValue = function (nums, original) {
-  let newArr = nums.sort((a,b)=>a-b)
-  let k = 0
-  let num = 0;
-  for (let i = 0; i < newArr.length; i++) {
-    if (newArr[i] === original) {
-k++      
-      num = newArr[i] * 2;
-    } else {
-      if (newArr[i] === num) {
-        num = newArr[i] * 2;
-      }
-    }
-  }
+// var findFinalValue = function (nums, original) {
+//   let newArr = nums.sort((a, b) => a - b);
+//   let k = 0;
+//   let num = 0;
+//   for (let i = 0; i < newArr.length; i++) {
+//     if (newArr[i] === original) {
+//       k++;
+//       num = newArr[i] * 2;
+//     } else {
+//       if (newArr[i] === num) {
+//         num = newArr[i] * 2;
+//       }
+//     }
+//   }
 
-  return k === 0 ? original: num;
+//   return k === 0 ? original : num;
+// };
+// console.log(findFinalValue([8, 19, 4, 2, 15, 3], 2));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// var isPalindrome = function (s) {
+//   let regex = /[^a-zA-Z0-9^]/g;
+//   let str1 = s
+//     .replace(regex, "")
+//     .split("")
+//     .join("")
+//     .toLowerCase();
+//   let str2 = s
+//     .replace(regex, "")
+//     .split("")
+//     .reverse()
+//     .join("")
+//     .toLowerCase();
+
+//   return str1 == str2 ? true : false;
+// };
+// console.log(isPalindrome("A man, a plan, a canal -- Panama"));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var hammingWeight = function (n) {
+  const arr = n.toString(2);
+  let j = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "1") {
+      j++;
+    } 
+  }
+  return j
+
 };
-console.log(findFinalValue([8, 19, 4, 2, 15, 3], 2));
+console.log(hammingWeight(00000000000000000000000000000101011));
