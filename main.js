@@ -183,15 +183,75 @@
 // };
 // console.log(isPalindrome("A man, a plan, a canal -- Panama"));
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-var hammingWeight = function (n) {
-  const arr = n.toString(2);
-  let j = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === "1") {
-      j++;
-    } 
-  }
-  return j
+// var hammingWeight = function (n) {
+//   const arr = n.toString(2);
+//   let j = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === "1") {
+//       j++;
+//     }
+//   }
+//   return j
 
+// };
+// console.log(hammingWeight(00000000000000000000000000000101011));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// var sortColors = function (nums) {
+//   let arr = nums.sort((a,b)=>a-b)
+//   return arr;
+// };
+// console.log(sortColors([2, 0, 2, 1, 1, 0]));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// var singleNumber = function(nums) {
+//     const obj = nums.reduce((acc,curr)=>{
+//       if(!acc[curr]){
+//         acc[curr] = 1
+//       }else{
+//         acc[curr]+=1
+//       }
+//       return acc
+//     },{})
+//     for (const key in obj) {
+//      if(obj[key] === 1){
+//       return key
+//      }
+//     }
+// };
+// console.log(singleNumber([0,1,0,1,0,1,99]));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// var maximumGap = function (nums) {
+//   let setArray = [...new Set(nums)];
+//   if (setArray.length < 2) {
+//     return 0;
+//   }
+
+//   let arr = [];
+//   let sorted = setArray.sort((a, b) => a - b);
+//   for (let i = 0; i < sorted.length - 1; i++) {
+//     arr.push(sorted[i + 1] - sorted[i]);
+//   }
+//   arr = arr.sort((a,b)=>a-b)
+//   return arr[arr.length - 1];
+// };
+// console.log(maximumGap([15252,16764,27963,7817,26155,20757,3478,22602,20404,6739,16790,10588,16521,6644,20880,15632,27078,25463,20124,15728,30042,16604,17223,4388,23646,32683,23688,12439,30630,3895,7926,22101,32406,21540,31799,3768,26679,21799,23740]));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var intersection = function (nums1, nums2) {
+  let setArray1 = [...new Set(nums1)];
+  let setArray2 = [...new Set(nums2)];
+  let num = [];
+  if (setArray1.length > setArray2.length) {
+    for (let i = 0; i < setArray1.length; i++) {
+      if (setArray2.includes(setArray1[i])) {
+         num.push(setArray1[i])
+      }
+    }
+  } else {
+    for (let i = 0; i < setArray2.length; i++) {
+      if (setArray1.includes(setArray2[i])) {
+         num.push(setArray2[i]);
+      }
+    }
+  }
+  return num;
 };
-console.log(hammingWeight(00000000000000000000000000000101011));
+console.log(intersection([1, 2], [2, 2, 4, 3, 6, 2, 1, 2, 4, 5]));
