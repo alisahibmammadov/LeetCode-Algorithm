@@ -235,23 +235,111 @@
 // };
 // console.log(maximumGap([15252,16764,27963,7817,26155,20757,3478,22602,20404,6739,16790,10588,16521,6644,20880,15632,27078,25463,20124,15728,30042,16604,17223,4388,23646,32683,23688,12439,30630,3895,7926,22101,32406,21540,31799,3768,26679,21799,23740]));
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-var intersection = function (nums1, nums2) {
-  let setArray1 = [...new Set(nums1)];
-  let setArray2 = [...new Set(nums2)];
-  let num = [];
-  if (setArray1.length > setArray2.length) {
-    for (let i = 0; i < setArray1.length; i++) {
-      if (setArray2.includes(setArray1[i])) {
-         num.push(setArray1[i])
-      }
-    }
-  } else {
-    for (let i = 0; i < setArray2.length; i++) {
-      if (setArray1.includes(setArray2[i])) {
-         num.push(setArray2[i]);
-      }
+// var intersection = function (nums1, nums2) {
+//   let setArray1 = [...new Set(nums1)];
+//   let setArray2 = [...new Set(nums2)];
+//   let num = [];
+//   if (setArray1.length > setArray2.length) {
+//     for (let i = 0; i < setArray1.length; i++) {
+//       if (setArray2.includes(setArray1[i])) {
+//          num.push(setArray1[i])
+//       }
+//     }
+//   } else {
+//     for (let i = 0; i < setArray2.length; i++) {
+//       if (setArray1.includes(setArray2[i])) {
+//          num.push(setArray2[i]);
+//       }
+//     }
+//   }
+//   return num;
+// };
+// console.log(intersection([1, 2], [2, 2, 4, 3, 6, 2, 1, 2, 4, 5]));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// var reverse = function (x) {
+//   if (Math.pow(2, 31) - 1 < x) {
+//     return 0;
+//   }
+//   if (Math.pow(-2, 31) > x) {
+//     return 0;
+//   }
+//   if (x === 0) {
+//     return 0;
+//   }
+//   let str;
+//   let array = [];
+//   if (x % 10 === 0) {
+//     str = String(x / 10);
+//   }
+//   if (x > 0 && x % 10 !== 0) {
+//     str = String(x);
+//   }
+//   if (x < 0) {
+//     str = String(x * -1);
+//   }
+
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     array.push(str[i]);
+//   }
+//   array = array.map((item) => Number(item)).join("");
+//   if(array < Math.pow(-2,31)){
+//     return 0
+//   }
+//   if(array > Math.pow(2,31) - 1){
+//     return 0
+//   }
+//   if (x > 0) return array;
+//   if (x < 0) return -array;
+// };
+// console.log(reverse(-1534236469));
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// var letterCombinations = function (digits) {
+//   const object = {
+//     2: ["a", "b", "c"],
+//     3: ["d", "e", "f"],
+//     4: ["g", "h", "i"],
+//     5: ["j", "k", "l"],
+//     6: ["m", "n", "o"],
+//     7: ["p", "q", "r", "s"],
+//     8: ["t", "u", "v"],
+//     9: ["w", "x", "y", "z"],
+//   };
+//   let array = digits.split("").map((item) => Number(item));
+//   let newArray = [];
+//   for (let i = 0; i < array.length ; i++) {
+//     console.log(object[array[i]]);
+//     // console.log(array[i]);
+//   }
+//   // for (let i = 0; i < arr1.length; i++) {
+// //   for (let j = 0; j < arr1.length; j++) {
+// //     console.log(`${arr1[i]}${arr2[j]}`);
+// //   }
+// // }
+//   return newArray;
+// };
+// console.log(letterCombinations("23"));
+// // let arr1 = ["a", "b", "c"];
+// // let arr2 = ["d", "e", "f"];
+// // for (let i = 0; i < arr1.length; i++) {
+// //   for (let j = 0; j < arr1.length; j++) {
+// //     console.log(`${arr1[i]}${arr2[j]}`);
+// //   }
+// // }
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var divide = function (dividend, divisor) {
+  //   let divide = Number(String(dividend / divisor).split("")[0]);
+  let divide = String(dividend / divisor).split("");
+  
+  if (dividend < 0 && divisor < 0) {
+    return +divide;
+  }else{
+  if (dividend < 0 || divisor < 0) {
+      return +divide[1] * -1;
+    }else{
+      return  +divide[0]
     }
   }
-  return num;
 };
-console.log(intersection([1, 2], [2, 2, 4, 3, 6, 2, 1, 2, 4, 5]));
+console.log(divide(10, 3));
